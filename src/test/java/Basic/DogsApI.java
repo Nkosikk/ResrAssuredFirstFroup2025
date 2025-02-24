@@ -10,7 +10,7 @@ public class DogsApI {
         Response response = RestAssured.get("https://dog.ceo/api/breeds/list/all");
         System.out.println("Response Status Code: " + response.getStatusCode());
         System.out.println("Response Body: " + response.getBody().asString());
-
+//test
         // Verify that the status code is 200
         response.then().assertThat().statusCode(200);
 
