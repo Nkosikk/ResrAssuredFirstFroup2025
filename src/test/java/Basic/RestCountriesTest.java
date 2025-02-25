@@ -11,3 +11,4 @@ public class RestCountriesTest {
         System.out.println("Response Body: " + response.getBody().asString());
     }
 }
+
