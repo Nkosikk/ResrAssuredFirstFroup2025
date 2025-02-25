@@ -1,6 +1,5 @@
 package Tests.Countries;
 
-import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static Common.CommonTestData.Success_Status_Code;
