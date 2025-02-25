@@ -21,4 +21,7 @@ public class DogsTests {
                 statusCode(Success_Status_Code);
     }
 
+    //ToDO Atha - Display single random image from all dogs collection
+
+
 }
