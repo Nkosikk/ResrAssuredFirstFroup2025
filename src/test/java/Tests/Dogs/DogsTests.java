@@ -22,6 +22,9 @@ public class DogsTests {
     }
 
     //ToDO Atha - Display single random image from all dogs collection
+    //ToDO Bernard - By breed
+    //ToDO Boni - List all sub-breedsBoni
+    //ToDO Gumi - Breeds list
 
 
 }
