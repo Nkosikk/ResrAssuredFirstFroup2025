@@ -18,7 +18,7 @@ public class DogsTests {
         getListOfAllBreedsResponse().
                 then().
                 assertThat().
-                statusCode(201);
+                statusCode(Success_Status_Code);
     }
 
 }
