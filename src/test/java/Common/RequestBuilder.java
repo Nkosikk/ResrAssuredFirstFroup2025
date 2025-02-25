@@ -2,6 +2,7 @@ package Common;
 
 import io.restassured.response.Response;
 
+import static Common.basePaths.Countries_BaseURL;
 import static Common.basePaths.Dogs_BaseURL;
 import static io.restassured.RestAssured.given;
 
@@ -18,5 +19,15 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
     }
+//get a list of all countries first
+    public static Response getListOfAllCountriesResponse() {
+        return given().
+                when().
+                contentType("application/json").
+                log().all().
+                get(Countries_BaseURL + "/all").then().
+                log().all().
+                extract().response();
 
+    }
 }
