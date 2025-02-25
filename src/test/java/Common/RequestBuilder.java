@@ -30,4 +30,16 @@ public class RequestBuilder {
                 extract().response();
 
     }
+    //validate that south african language is included in the list of official languages
+    public static Response getSouthAfricaResponse() {
+        return given().
+                when().
+                contentType("application/json").
+                log().all().
+                get(Countries_BaseURL + "/name/South Africa").
+                then().
+                log().all().
+                extract().response();
+    }
+    //validate that Tswana language is included in the list of official languages for South Africa
 }
