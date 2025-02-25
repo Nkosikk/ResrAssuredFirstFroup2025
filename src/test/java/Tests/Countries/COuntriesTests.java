@@ -5,8 +5,7 @@ import org.testng.annotations.Test;
 
 import static Common.CommonTestData.Success_Status_Code;
 import static Common.RequestBuilder.getListOfAllCountriesResponse;
-import static Common.basePaths.Countries_BaseURL;
-import static io.restassured.RestAssured.given;
+
 
 public class COuntriesTests {
 
