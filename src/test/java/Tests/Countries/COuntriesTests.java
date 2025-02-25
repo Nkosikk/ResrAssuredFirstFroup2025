@@ -20,7 +20,7 @@ public class COuntriesTests {
     @Test
     @Feature("Countries API")
     @Story("List of countries")
-    @Description("Validate that South African sign language is included in the list of official languages")
+    @Description("Get all countries")
     public void getListOfAllCountriesTests() {
         getListOfAllCountriesResponse().
                 then().
@@ -29,6 +29,7 @@ public class COuntriesTests {
 
     }
     @Test
+    @Description("Validate that South Africa is included in the list of countries")
     //validate that south african is included in the list of countries
     public void validateSouthAfricaIsIncludedInListOfCountries(){
         getSouthAfricaResponse().
