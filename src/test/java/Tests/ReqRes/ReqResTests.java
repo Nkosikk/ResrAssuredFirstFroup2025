@@ -1,26 +1,33 @@
 package Tests.ReqRes;
 
+import io.qameta.allure.*;
+import org.testng.annotations.Test;
+
+import static Common.CommonTestData.Success_Status_Code;
+import static Common.RequestBuilder.*;
+import static org.hamcrest.Matchers.notNullValue;
+
+@Test
+@Feature("ReqRes API")
+@Story("List of users")
 public class ReqResTests {
+    @Description("As an api user i want to see all registered users")
+    @Severity(SeverityLevel.BLOCKER)
+    public void getListOfSuccessfulRegistrationsTest() {
+        getListOfSuccessfulRegistrationsResponse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code).
+                body("id", notNullValue()).
+                body("token", notNullValue());
+    }
 
-    //ToDo Itumeleng - List users
-    //ToDo Linda - Single user
-    //ToDo Itumeleng - Single user not found
-    //ToDo Mmatseba - List <resource>
-    //ToDo Refilwe - Single <resource>
-    //ToDo Jabulani - Single <resource> not found
-    //ToDo Jabulani - Login - unsuccessful
-    //ToDo Mahlatse - Delayed response
-    //ToDo Mahlatse - Register - successful
-
-    //ToDo Kat - List users
-    //ToDo Pulane - Register - unsuccessful
-    //ToDo Malibongwe - List users
-    //ToDo Veronica - Create EMployee
-    //ToDo Vila - Login - successful
-    //ToDo Nomsa - Login - unsuccessful
-    //ToDo Vero - Delayed response
-
-
+    public void getDelayedResponseTest() {
+        getDelayedResponse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code);
+    }
 
 
 }
