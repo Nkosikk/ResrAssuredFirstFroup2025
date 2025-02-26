@@ -10,6 +10,7 @@ import static Common.RequestBuilder.getListOfAllBreedsResponse;
 @Test
 @Feature("Dogs API")
 @Story("List of dogs")
+@Story("Display single random image from all dogs collection")
 public class DogsTests {
 
     @Description("As an api user i want to see all the dogs list")
@@ -20,6 +21,14 @@ public class DogsTests {
                 assertThat().
                 statusCode(Success_Status_Code);
     }
+
+    public void getSingleRandomImageTests(){
+        getListOfAllBreedsResponse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code);
+    }
+    
 
     //ToDO Atha - Display single random image from all dogs collection
     //ToDO Bernard - By breed
