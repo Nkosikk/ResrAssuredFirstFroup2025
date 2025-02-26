@@ -18,5 +18,15 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
     }
+    public static Response getListOfAllSubBreedsResponse() {
+        return given().
+                when().
+                contentType("application/json").
+                log().all().
+                get(Dogs_BaseURL + "/breed/hound/list").
+                then().
+                log().all().
+                extract().response();
+    }
 
 }
