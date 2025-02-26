@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import static Common.CommonTestData.Success_Status_Code;
 import static Common.RequestBuilder.getListOfAllBreedsResponse;
-
+import static Common.RequestBuilder.getListOfAllSubBreedsResponse;
 @Test
 @Feature("Dogs API")
 @Story("List of dogs")
@@ -20,6 +20,15 @@ public class DogsTests {
                 assertThat().
                 statusCode(Success_Status_Code);
     }
+    @Description("As an api user i want to see all the dogs list")
+    @Severity(SeverityLevel.BLOCKER)
+    public void getListOfAllSubBreedsTests(){
+        getListOfAllBreedsResponse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code);
+    }
+
 
     //ToDO Atha - Display single random image from all dogs collection
     //ToDO Bernard - By breed
