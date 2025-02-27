@@ -1,26 +1,31 @@
 package Tests.ReqRes;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.testng.annotations.Test;
+
+import static Common.CommonTestData.Success_Status_Code;
+import static Common.RequestBuilder.getSingleResourceResponse;
+
+@Test
+@Feature("ReqRes API")
+@Story("Single Resource")
 public class ReqResTests {
 
-    //ToDo Itumeleng - List users
-    //ToDo Linda - Single user
-    //ToDo Itumeleng - Single user not found
-    //ToDo Mmatseba - List <resource>
-    //ToDo Refilwe - Single <resource>
-    //ToDo Jabulani - Single <resource> not found
-    //ToDo Jabulani - Login - unsuccessful
-    //ToDo Mahlatse - Delayed response
-    //ToDo Mahlatse - Register - successful
+    public void getSingleResourceTests() {
+        getSingleResourceResponse().then().assertThat().statusCode(Success_Status_Code);
 
-    //ToDo Kat - List users
-    //ToDo Pulane - Register - unsuccessful
-    //ToDo Malibongwe - List users
-    //ToDo Veronica - Create EMployee
-    //ToDo Vila - Login - successful
-    //ToDo Nomsa - Login - unsuccessful
-    //ToDo Vero - Delayed response
+    }
+
+
+
+
+
+
+
 
 
 
 
 }
+

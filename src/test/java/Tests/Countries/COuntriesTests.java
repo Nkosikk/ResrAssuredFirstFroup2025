@@ -8,18 +8,19 @@ import static Common.RequestBuilder.getListOfCountriesResponse;
 import static org.hamcrest.Matchers.hasItem;
 
 @Test
-    @Feature("RestCounties API")
-    @Story("List of countries")
-    public class COuntriesTests{
+@Feature("RestCounties API")
+@Story("List of countries")
+public class COuntriesTests {
 
-        @Description("As an api user i want to see all the countries list")
-        @Severity(SeverityLevel.BLOCKER)
-        public void getListOfCountriesTests(){
-            getListOfCountriesResponse().
-                    then().
-                    assertThat().
-                    statusCode(Success_Status_Code);
-        }
+    @Description("As an api user i want to see all the countries list")
+    @Severity(SeverityLevel.BLOCKER)
+    public void getListOfCountriesTests() {
+        getListOfCountriesResponse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code);
+    }
+
     @Description("Validate that South Africa is in the list of countries")
     @Severity(SeverityLevel.CRITICAL)
     public void validateSouthAfricaInList() {

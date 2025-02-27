@@ -3,6 +3,7 @@ package Common;
 import io.restassured.response.Response;
 import static Common.basePaths.RestCountries_BaseURL;
 import static Common.basePaths.Dogs_BaseURL;
+import static Common.basePaths.ReqRes_BaseURL;
 import static io.restassured.RestAssured.given;
 
 public class RequestBuilder {
@@ -30,4 +31,19 @@ public class RequestBuilder {
                 extract().response();
     }
 
+    public static Response getSingleResourceResponse() {
+        return given().
+                when().
+                contentType("application/json;").
+                log().all().
+                get(ReqRes_BaseURL + "/unknown/2").
+                then().
+                log().all().
+                extract().response();
+    }
 }
+
+
+
+
+
