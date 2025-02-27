@@ -19,15 +19,16 @@ public class RequestBuilder {
                 extract().response();
     }
 
-    public static Response getSingleRandomImageResponse() {
+    public static Response getSingleRandomImageResponse(Integer RandomNumber) {
         return given().
-                when().
-                contentType("application/json").
+                when().param("RandomNumber", RandomNumber).
+                contentType("application/json").relaxedHTTPSValidation().
                 log().all().
-                get(Dogs_BaseURL + "/breeds/image/random").
+                get(Dogs_BaseURL + "/breeds/image/random/{RandomNumber}").
                 then().
                 log().all().
                 extract().response();
+
     }
 }
 
