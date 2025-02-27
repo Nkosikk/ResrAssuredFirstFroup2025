@@ -1,7 +1,13 @@
 package Common;
 
 import io.restassured.response.Response;
+
 import static Common.basePaths.RestCountries_BaseURL;
+
+import org.json.simple.JSONObject;
+
+import java.util.Map;
+
 import static Common.basePaths.Dogs_BaseURL;
 import static Common.basePaths.ReqRes_BaseURL;
 import static io.restassured.RestAssured.given;
@@ -41,9 +47,29 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
     }
+
+    public static Response getSingleUserNotFoundResponse() {
+        return given().
+                when().
+                contentType("application/json").
+                log().all().
+                get(ReqRes_BaseURL + "/unknown/23").
+                then().
+                log().all().
+                extract().response();
+    }
+
+    public static Response postLoginUnsuccessfulResponse(JSONObject loginData) {
+
+        return given().when().
+                contentType("application/json").
+                body(loginData.toString()).
+                post(ReqRes_BaseURL + "/login").
+                then().
+                log().
+                all().
+                extract().
+                response();
+    }
+
 }
-
-
-
-
-
