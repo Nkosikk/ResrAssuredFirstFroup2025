@@ -11,7 +11,6 @@ import static Common.RequestBuilder.getSingleResourceResponse;
 @Feature("ReqRes API")
 @Story("Single Resource")
 public class ReqResTests {
-
     public void getSingleResourceTests() {
         getSingleResourceResponse().then().assertThat().statusCode(Success_Status_Code);
 
