@@ -21,10 +21,7 @@ public class DogsTests {
                 statusCode(Success_Status_Code);
     }
 
-    //ToDO Atha - Display single random image from all dogs collection
-    //ToDO Bernard - By breed
-    //ToDO Boni - List all sub-breedsBoni
-    //ToDO Gumi - Breeds list
+
 
 
 
