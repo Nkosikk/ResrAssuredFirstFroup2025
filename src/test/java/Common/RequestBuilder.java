@@ -18,12 +18,12 @@ public class RequestBuilder {
                 extract().response();
     }
 
-    public static Response getBreedImagesResponse(String breed){
+    public static Response getBreedImagesResponse(){
         return given().
                 when().
                 contentType("application/json").
                 log().all().
-                get(Dogs_BaseURL+ "/breed/"+breed+"/images").
+                get(Dogs_BaseURL+ "/breeds/image/random").
                 then().
                 log().all().
                 extract().response();
