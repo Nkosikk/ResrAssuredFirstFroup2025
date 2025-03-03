@@ -6,6 +6,9 @@ import org.testng.annotations.Test;
 
 import static Common.CommonTestData.Success_Status_Code;
 import static Common.RequestBuilder.getListOfAllBreedsResponse;
+import static Common.RequestBuilder.getSingleRandomImageResponse;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 
 @Test
 @Feature("Dogs API")
@@ -23,12 +26,16 @@ public class DogsTests {
     }
 
     public void getSingleRandomImageTests(){
-        getListOfAllBreedsResponse().
+        int num = 0;
+        getSingleRandomImageResponse(1).
                 then().
                 assertThat().
                 statusCode(Success_Status_Code);
+          //      .body("message", notNullValue())
+           //     .body("status", equalTo("success"));
+
     }
-    
+
 
     //ToDO Atha - Display single random image from all dogs collection
     //ToDO Bernard - By breed

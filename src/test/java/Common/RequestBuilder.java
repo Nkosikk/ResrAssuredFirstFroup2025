@@ -19,9 +19,9 @@ public class RequestBuilder {
                 extract().response();
     }
 
-    public static Response getSingleRandomImageResponse(Integer RandomNumber) {
+    public static Response getSingleRandomImageResponse(int RandomNumber) {
         return given().
-                when().param("RandomNumber", RandomNumber).
+                when().pathParam("RandomNumber", RandomNumber).
                 contentType("application/json").relaxedHTTPSValidation().
                 log().all().
                 get(Dogs_BaseURL + "/breeds/image/random/{RandomNumber}").
