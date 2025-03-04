@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 
 import org.json.simple.JSONObject;
 
+import static Common.PayloadBuilder.createEmployeeObject;
 import static Common.basePaths.Dogs_BaseURL;
 import static Common.basePaths.ReqRes_BaseURL;
 import static io.restassured.RestAssured.given;
@@ -80,16 +81,12 @@ public class RequestBuilder {
 
     }
     public static Response postCreateEmployeeSuccessfulResponse() {
-        JSONObject empFields = new JSONObject();
-        empFields.put("email", "veronicammabatho@yahoo.com");
-        empFields.put("first_name", "Veronica");
-        empFields.put("last_name", "Mphahlele");
-        empFields.put("avatar", "https://reqres.in/img/faces/2-image.jpg");
+
 
 
         return given().when().
                 contentType("application/json").
-                body(empFields.toString()).
+                body(createEmployeeObject()).
                         post(ReqRes_BaseURL + "/users").
                         then().
                         log().

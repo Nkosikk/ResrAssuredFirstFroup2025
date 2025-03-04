@@ -50,7 +50,8 @@ public class ReqResTests {
         postCreateEmployeeSuccessfulResponse().
                 then().assertThat().
                 assertThat().
-                statusCode(Created_Status_Code).time(lessThanOrEqualTo(Expected_Response_Time));
+                statusCode(Created_Status_Code).
+                time(lessThanOrEqualTo(Expected_Response_Time));
     }
 
 }
