@@ -2,11 +2,7 @@ package Common;
 
 import io.restassured.response.Response;
 
-import static Common.basePaths.RestCountries_BaseURL;
-
 import org.json.simple.JSONObject;
-
-import java.util.Map;
 
 import static Common.basePaths.Dogs_BaseURL;
 import static Common.basePaths.ReqRes_BaseURL;
@@ -81,6 +77,26 @@ public class RequestBuilder {
                 then().
                 log().all().
                 extract().response();
+
+    }
+    public static Response postCreateEmployeeSuccessfulResponse() {
+        JSONObject empFields = new JSONObject();
+        empFields.put("email", "veronicammabatho@yahoo.com");
+        empFields.put("first_name", "Veronica");
+        empFields.put("last_name", "Mphahlele");
+        empFields.put("avatar", "https://reqres.in/img/faces/2-image.jpg");
+
+
+        return given().when().
+                contentType("application/json").
+                body(empFields.toString()).
+                        post(ReqRes_BaseURL + "/users").
+                        then().
+                        log().
+                        all().
+                        extract().
+                        response();
+
 
     }
 }

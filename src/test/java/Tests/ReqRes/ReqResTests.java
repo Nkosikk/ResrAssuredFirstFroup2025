@@ -1,11 +1,14 @@
 package Tests.ReqRes;
 
 import io.qameta.allure.*;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
 import static Common.CommonTestData.*;
 import static Common.RequestBuilder.*;
+import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.lessThanOrEqualTo;
 
 @Test
 @Feature("ReqRes API")
@@ -33,10 +36,21 @@ public class ReqResTests {
         JSONObject illegalLogin = new JSONObject();
         illegalLogin.put("email", "chivu@klaven");
 
+
         postLoginUnsuccessfulResponse(illegalLogin).
                 then().assertThat().
                 assertThat().
                 statusCode(Bad_Request_Status_Code);
+    }
+
+    @Description("As an API user, I want to get User Created when creating an employee")
+    @Severity(SeverityLevel.BLOCKER)
+    public void postCreateEmployeeSuccessfulTests() {
+
+        postCreateEmployeeSuccessfulResponse().
+                then().assertThat().
+                assertThat().
+                statusCode(Created_Status_Code).time(lessThanOrEqualTo(Expected_Response_Time));
     }
 
 }
