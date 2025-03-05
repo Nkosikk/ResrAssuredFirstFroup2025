@@ -1,4 +1,4 @@
-# Rest Assured First Froup2025
+# Rest Assured First Group2025
 This readme file is created for the purpose of the first group project of the Rest Assured course in 2025
 ## Software needed
 - IntelliJ IDEA
