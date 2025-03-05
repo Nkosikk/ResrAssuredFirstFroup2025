@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import static Common.CommonTestData.*;
 import static Common.RequestBuilder.*;
+import static Common.TestDataCreation.first_name;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 
@@ -16,10 +17,11 @@ import static org.hamcrest.Matchers.lessThanOrEqualTo;
 public class ReqResTests {
 
     public void getSingleResourceTests() {
-        getSingleResourceResponse().then().assertThat().statusCode(Success_Status_Code);
-
+        getSingleResourceResponse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code);
     }
-
 
     @Description("As an API user, I want to get a Not Found response when I try to get a single user that does not exist")
     @Severity(SeverityLevel.NORMAL)
@@ -34,9 +36,7 @@ public class ReqResTests {
     @Severity(SeverityLevel.BLOCKER)
     public void postLoginUnsuccessfulTests() {
         JSONObject illegalLogin = new JSONObject();
-        illegalLogin.put("email", "chivu@klaven");
-
-
+        illegalLogin.put("email", first_name);
         postLoginUnsuccessfulResponse(illegalLogin).
                 then().assertThat().
                 assertThat().
