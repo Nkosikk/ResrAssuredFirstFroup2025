@@ -19,4 +19,15 @@ public class RequestBuilder {
                 extract().response();
     }
 
+    public static Response getBreedslistResponse() {
+        return given().
+                when().
+                contentType("application/json").
+                log().all().
+                get(Dogs_BaseURL + "/breed/affenpinscher/images/random").
+                then().
+                log().all().
+                extract().response();
+    }
+
 }
