@@ -16,4 +16,13 @@ public class PayloadBuilder {
 
         return empFields;
     }
+
+    public static JSONObject unsuccessfulLogin(){
+
+        JSONObject object = new JSONObject();
+        object.put("email", emailAddress);
+
+
+        return object;
+    }
 }

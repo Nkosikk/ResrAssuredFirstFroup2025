@@ -3,6 +3,8 @@ package Tests.Countries;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
+import javax.swing.plaf.PanelUI;
+
 import static Common.CommonTestData.Success_Status_Code;
 import static Common.RequestBuilder.getListOfCountriesResponse;
 import static org.hamcrest.Matchers.hasItem;

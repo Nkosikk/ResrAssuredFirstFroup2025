@@ -9,6 +9,9 @@ import static Common.CommonTestData.*;
 import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static Common.CommonTestData.Success_Status_Code;
+import static Common.RequestBuilder.getSingleResourceResponse;
+import static Common.RequestBuilder.postLoginUncussessful;
 
 @Test
 @Feature("ReqRes API")
@@ -17,7 +20,6 @@ public class ReqResTests {
 
     public void getSingleResourceTests() {
         getSingleResourceResponse().then().assertThat().statusCode(Success_Status_Code);
-
     }
 
 
@@ -43,10 +45,18 @@ public class ReqResTests {
                 statusCode(Bad_Request_Status_Code);
     }
 
+    @Feature("ReqRes Unsuccessful Login")
+    @Story("Unsuccessful Login")
+    public void postLoginUnsuccessful() {
+        postLoginUncussessful().
+                then().
+                assertThat().
+                statusCode(Bad_Request_Status_Code);
+    }
+
     @Description("As an API user, I want to get User Created when creating an employee")
     @Severity(SeverityLevel.BLOCKER)
     public void postCreateEmployeeSuccessfulTests() {
-
         postCreateEmployeeSuccessfulResponse().
                 then().assertThat().
                 assertThat().
