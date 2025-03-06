@@ -18,6 +18,16 @@ import static Common.RequestBuilder.postLoginUncussessful;
 @Story("List of ReqRes users")
 public class ReqResTests {
 
+    @Description("As a user i want to see all resources listed")
+    @Severity(SeverityLevel.BLOCKER)
+    public void getAllResourcesListed(){
+        getAllResourcesListedResponse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code);
+    }
+
+
     public void getSingleResourceTests() {
         getSingleResourceResponse().then().assertThat().statusCode(Success_Status_Code);
     }

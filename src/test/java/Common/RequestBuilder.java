@@ -113,4 +113,15 @@ public class RequestBuilder {
 
 
     }
+
+    public static Response getAllResourcesListedResponse() {
+        return given().
+                when().
+                contentType("application/json").
+                log().all().
+                get(ReqRes_BaseURL + "/unknown/").
+                then().
+                log().all().
+                extract().response();
+    }
 }
