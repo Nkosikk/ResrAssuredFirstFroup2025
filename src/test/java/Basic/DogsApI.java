@@ -1,3 +1,5 @@
+package Basic;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -21,6 +23,7 @@ public class DogsApI {
 
         // Verify that "doberman" is in the list
         response.then().assertThat().body("message.doberman", notNullValue());
+
     }
 
     public static void getRandomDogImage() {
