@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import static Common.CommonTestData.*;
 import static Common.RequestBuilder.*;
+
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 
@@ -46,12 +47,26 @@ public class ReqResTests {
     @Description("As an API user, I want to get User Created when creating an employee")
     @Severity(SeverityLevel.BLOCKER)
     public void postCreateEmployeeSuccessfulTests() {
-
-        postCreateEmployeeSuccessfulResponse().
+        String id = postCreateEmployeeSuccessfulResponse().
                 then().assertThat().
-                assertThat().
                 statusCode(Created_Status_Code).
-                time(lessThanOrEqualTo(Expected_Response_Time));
+                time(lessThanOrEqualTo(Expected_Response_Time)).
+                extract().path("id");
+                System.out.println("Created Employee ID: " + id);
+
+        // Save the ID to a base path or a variable
+        // For example, saving to a static variable
+        Common.CommonTestData.createdEmployeeId = id;
+
     }
 
+    @Description("As an API user, I want to get a single user")
+    @Severity(SeverityLevel.NORMAL)
+    @Test(dependsOnMethods = "postCreateEmployeeSuccessfulTests")
+    public void getSingleUserTests() {
+        getSingleUserResponse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code);
+    }
 }

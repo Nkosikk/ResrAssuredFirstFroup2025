@@ -6,5 +6,5 @@ public class CommonTestData {
     public static int Bad_Request_Status_Code = 400;
     public static int Created_Status_Code = 201;
     public static long Expected_Response_Time = 3000;
-
+    public static String createdEmployeeId;
 }

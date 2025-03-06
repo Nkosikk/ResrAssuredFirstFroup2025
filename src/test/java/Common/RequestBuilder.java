@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 
 import org.json.simple.JSONObject;
 
+import static Common.CommonTestData.createdEmployeeId;
 import static Common.PayloadBuilder.createEmployeeObject;
 import static Common.basePaths.Dogs_BaseURL;
 import static Common.basePaths.ReqRes_BaseURL;
@@ -95,5 +96,15 @@ public class RequestBuilder {
                         response();
 
 
+    }
+    public static Response getSingleUserResponse() {
+        return given().
+                when().
+                contentType("application/json").
+                log().all().
+                get(ReqRes_BaseURL + "/users/"+ createdEmployeeId).
+                then().
+                log().all().
+                extract().response();
     }
 }
