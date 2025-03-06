@@ -23,7 +23,7 @@ jobs:
       run: mvn clean test
 
     - name: Upload test report
-      if: always
+      if: always()
       uses: action/upload-artifact@v3
       with:
         name: test-report
