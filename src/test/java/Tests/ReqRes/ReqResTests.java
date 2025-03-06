@@ -24,7 +24,7 @@ public class ReqResTests {
                 statusCode(Success_Status_Code);
     }
 
-    //ToDo Mmatseba - List <resource>
+
     public void getSingleResourceTests() {
         getSingleResourceResponse().then().assertThat().statusCode(Success_Status_Code);
 
