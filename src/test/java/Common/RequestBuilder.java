@@ -23,6 +23,17 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
     }
+    public static Response getSingleUserRespnse() {
+        return given().
+                when().
+                contentType("application/json").
+                log().all().
+                get(ReqRes_BaseURL + "/users/2").
+                then().
+                log().all().
+                extract().response();
+
+    }
 
     public static Response getListOfCountriesResponse() {
         return given().

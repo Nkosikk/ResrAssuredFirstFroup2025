@@ -31,6 +31,14 @@ public class ReqResTests {
     public void getSingleResourceTests() {
         getSingleResourceResponse().then().assertThat().statusCode(Success_Status_Code);
     }
+    @Description("As an api user i want to see a single user")
+    @Severity(SeverityLevel.BLOCKER)
+    public void getSingleUserTest(){
+        getSingleUserRespnse().
+                then().
+                assertThat().
+                statusCode(Success_Status_Code);
+    }
 
 
     @Description("As an API user, I want to get a Not Found response when I try to get a single user that does not exist")
