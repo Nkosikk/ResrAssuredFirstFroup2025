@@ -1,13 +1,10 @@
 package Tests.ReqRes;
 
 import io.qameta.allure.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
 import static Common.CommonTestData.*;
 import static Common.RequestBuilder.*;
-import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static Common.CommonTestData.Success_Status_Code;
 import static Common.RequestBuilder.getSingleResourceResponse;
@@ -45,11 +42,7 @@ public class ReqResTests {
     @Description("As an API user, I want to get a Bad Request error when I try to login with only email")
     @Severity(SeverityLevel.BLOCKER)
     public void postLoginUnsuccessfulTests() {
-        JSONObject illegalLogin = new JSONObject();
-        illegalLogin.put("email", "chivu@klaven");
-
-
-        postLoginUnsuccessfulResponse(illegalLogin).
+        postLoginUnsuccessfulResponse().
                 then().assertThat().
                 assertThat().
                 statusCode(Bad_Request_Status_Code);
