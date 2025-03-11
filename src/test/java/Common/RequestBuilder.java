@@ -4,10 +4,9 @@ import io.restassured.response.Response;
 
 import org.json.simple.JSONObject;
 
-import static Common.PayloadBuilder.createEmployeeObject;
-import static Common.PayloadBuilder.unsuccessfulLogin;
-import static Common.basePaths.Dogs_BaseURL;
-import static Common.basePaths.ReqRes_BaseURL;
+import static Common.PayloadBuilder.*;
+import static Common.basePaths.*;
+import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 public class RequestBuilder {
@@ -120,6 +119,19 @@ public class RequestBuilder {
                 contentType("application/json").
                 log().all().
                 get(ReqRes_BaseURL + "/unknown/").
+                then().
+                log().all().
+                extract().response();
+    }
+
+    public static Response weatherStationStationResponse(){
+        return given().
+                queryParam("appid","cf4dced3a237d81d607ad2009cc5e15a").
+                when().
+                body(weatherStationStationObject()).
+                contentType("application/json").
+                log().all().
+                post(Weather_BaseURL+"/data/3.0/stations").
                 then().
                 log().all().
                 extract().response();
