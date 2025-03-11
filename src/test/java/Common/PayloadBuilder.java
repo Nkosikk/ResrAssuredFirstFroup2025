@@ -25,4 +25,19 @@ public class PayloadBuilder {
 
         return object;
     }
+
+
+
+    public static JSONObject weatherStationStationObject(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("external_id","SF_TEST001");
+        jsonObject.put("name","FirstGroup2025 Test Station");
+        jsonObject.put("latitude",37.76);
+        jsonObject.put("longitude",-122.43);
+        jsonObject.put("altitude",150);
+        return jsonObject;
+    }
 }
+
+//ToDo Do the chaining of requests - ussing the id from one test to another
+// ToDo start weather
