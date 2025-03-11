@@ -1,4 +1,4 @@
-# Rest Assured First Froup2025
+# Rest Assured First Group2025
 This readme file is created for the purpose of the first group project of the Rest Assured course in 2025
 ## Software needed
 - IntelliJ IDEA
@@ -14,3 +14,5 @@ This readme file is created for the purpose of the first group project of the Re
 -  com.googlecode.json-simple:json-simple:1.1.1
 -  io.qameta.allure:allure-testng:2.29.1
 -   com.github.javafaker:javafaker:1.0.2
+
+Nkosi
