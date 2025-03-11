@@ -8,6 +8,8 @@ import javax.swing.*;
 
 import static Common.CommonTestData.*;
 import static Common.RequestBuilder.*;
+import static Common.TestDataCreation.randomEmployeeId;
+import static org.hamcrest.Matchers.containsString;
 
 @Test
 @Feature("Weather")
@@ -19,18 +21,19 @@ public class OpenWeatherTests {
         weatherStationStationResponse("","Nkosi weather station",36.17,20.12,150).
                 then().
                 assertThat().
-                statusCode(Bad_Request_Status_Code);
+                statusCode(Bad_Request_Status_Code).
+                body("message",containsString("Bad external id"));
 
     }
     public void ceateWeatherStationStationWithEmptyNameTests(){
-        weatherStationStationResponse("test-9937r7","",36.17,20.12,150).
+        weatherStationStationResponse(randomEmployeeId,"",36.17,20.12,150).
                 then().
                 assertThat().
                 statusCode(Bad_Request_Status_Code);
 
     }
     public void weatherStationStationTests(){
-        weatherStationStationResponse("ST-001Tests","Nkosi weather station",36.17,20.12,150).
+        weatherStationStationResponse(randomEmployeeId,"Nkosi weather station",36.17,20.12,150).
                 then().
                 assertThat().
                 statusCode(Created_Status_Code);
