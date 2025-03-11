@@ -2,6 +2,8 @@ package Common;
 
 import org.json.simple.JSONObject;
 
+import java.awt.*;
+
 import static Common.TestDataCreation.*;
 
 public class PayloadBuilder {
@@ -28,13 +30,13 @@ public class PayloadBuilder {
 
 
 
-    public static JSONObject weatherStationStationObject(){
+    public static JSONObject weatherStationStationObject(String external_id, String name,double latitude,double longitude,int altitude ){
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("external_id","SF_TEST001");
-        jsonObject.put("name","FirstGroup2025 Test Station");
-        jsonObject.put("latitude",37.76);
-        jsonObject.put("longitude",-122.43);
-        jsonObject.put("altitude",150);
+        jsonObject.put("external_id",external_id);
+        jsonObject.put("name",name);
+        jsonObject.put("latitude",latitude);
+        jsonObject.put("longitude",longitude);
+        jsonObject.put("altitude",altitude);
         return jsonObject;
     }
 }
