@@ -2,12 +2,16 @@ package Common;
 
 import io.restassured.response.Response;
 
+import org.json.simple.JSONObject;
+
 import static Common.PayloadBuilder.*;
-import static Common.basePaths.Dogs_BaseURL;
-import static Common.basePaths.ReqRes_BaseURL;
+import static Common.basePaths.*;
+import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 public class RequestBuilder {
+
+    public static String stationID;
 
 
     public static Response getListOfAllBreedsResponse() {
@@ -120,5 +124,36 @@ public class RequestBuilder {
                 then().
                 log().all().
                 extract().response();
+    }
+
+    public static Response weatherStationStationResponse(String external_id, String name,double latitude,double longitude,int altitude){
+        Response response = given().
+                queryParam("appid","cf4dced3a237d81d607ad2009cc5e15a").
+                when().
+                body(weatherStationStationObject(external_id,name,latitude,longitude,altitude)).
+                contentType("application/json").
+                log().all().
+                post(Weather_BaseURL+"/data/3.0/stations").
+                then().
+                log().all().
+                extract().response();
+        stationID = response.jsonPath().getString("ID");
+
+        return response;
+    }
+
+    public static Response getWeatherStationStationResponse(){
+        return given().
+                queryParam("appid","cf4dced3a237d81d607ad2009cc5e15a").
+                when().
+                contentType("application/json").
+                log().all().
+                get(Weather_BaseURL+"/data/3.0/stations"+"/"+stationID).
+                then().
+                log().all().
+                extract().response();
+
+
+
     }
 }

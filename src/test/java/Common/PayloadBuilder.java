@@ -2,6 +2,8 @@ package Common;
 
 import org.json.simple.JSONObject;
 
+import java.awt.*;
+
 import static Common.TestDataCreation.*;
 
 public class PayloadBuilder {
@@ -27,4 +29,19 @@ public class PayloadBuilder {
         return loginFields;
     }
 
+
+
+
+    public static JSONObject weatherStationStationObject(String external_id, String name,double latitude,double longitude,int altitude ){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("external_id",external_id);
+        jsonObject.put("name",name);
+        jsonObject.put("latitude",latitude);
+        jsonObject.put("longitude",longitude);
+        jsonObject.put("altitude",altitude);
+        return jsonObject;
+    }
 }
+
+//ToDo Do the chaining of requests - ussing the id from one test to another
+// ToDo start weather
