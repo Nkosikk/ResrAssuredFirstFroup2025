@@ -4,12 +4,12 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
-import javax.swing.*;
-
 import static Common.CommonTestData.*;
 import static Common.RequestBuilder.*;
-import static Common.TestDataCreation.randomEmployeeId;
+import static Common.RequestBuilder.weatherStationStationResponse;
+import static Common.TestDataCreation.*;
 import static org.hamcrest.Matchers.containsString;
+
 
 @Test
 @Feature("Weather")
@@ -17,29 +17,50 @@ import static org.hamcrest.Matchers.containsString;
 public class OpenWeatherTests {
 
 
-    public void ceateWeatherStationStationWithEmptyExternalIDTests(){
-        weatherStationStationResponse("","Nkosi weather station",36.17,20.12,150).
+    public void createWeatherStationStationWithEmptyExternalIDTests(){
+        weatherStationStationResponse("",first_name,randomLatitude,randomLongitude,randomAltitude).
                 then().
                 assertThat().
                 statusCode(Bad_Request_Status_Code).
                 body("message",containsString("Bad external id"));
 
     }
-    public void ceateWeatherStationStationWithEmptyNameTests(){
-        weatherStationStationResponse(randomEmployeeId,"",36.17,20.12,150).
+    public void createWeatherStationStationWithEmptyNameTests(){
+        weatherStationStationResponse(randomEmployeeId,"",randomLatitude,randomLongitude,randomAltitude).
                 then().
                 assertThat().
                 statusCode(Bad_Request_Status_Code);
 
     }
-    public void weatherStationStationTests(){
-        weatherStationStationResponse(randomEmployeeId,"Nkosi weather station",36.17,20.12,150).
+//need to correct longitude,latutitude and altitude to be empty values
+    public void createWeatherStationStationWithEmptyLatitudeTests() {
+        weatherStationStationResponse(randomEmployeeId, first_name,  4.55, randomLongitude, randomAltitude).
                 then().
                 assertThat().
-                statusCode(Created_Status_Code);
+                statusCode(Bad_Request_Status_Code);
+    }
+
+    public void createWeatherStationStationWithEmptyLongitudeTests(){
+        weatherStationStationResponse(randomEmployeeId,first_name,randomLatitude,2.33,randomAltitude).
+                then().
+                assertThat().
+                statusCode(Bad_Request_Status_Code);
 
     }
 
+    public void createWeatherStationStationWithEmptyAltitudeTests() {
+        weatherStationStationResponse(randomEmployeeId, first_name, randomLatitude, randomLongitude,0).
+                then().
+                assertThat().
+                statusCode(Bad_Request_Status_Code);
+    }
+
+    public void weatherStationStationTests(){
+        weatherStationStationResponse(randomEmployeeId,first_name,randomLatitude,randomLongitude,randomAltitude).
+                then().
+                assertThat().
+                statusCode(Created_Status_Code);
+    }
 
     @Test(dependsOnMethods = "weatherStationStationTests")
     public void getWeatherStationStationTests(){
@@ -47,7 +68,6 @@ public class OpenWeatherTests {
                 then().
                 assertThat().
                 statusCode(Success_Status_Code);
-
     }
 
 

@@ -18,8 +18,14 @@ public class TestDataCreation {
     static String formattedNumber = String.format("%03d", randomNumber); // Ensures a 3-digit number
 
     // Create the random employee ID
-    public static String randomEmployeeId = "SF_TEST" + formattedNumber;
+    public static String randomEmployeeId = "SF_TEST" + " " + formattedNumber;
 
+    //Create a random latitude
+    public static double randomLatitude = faker.number().randomDouble(2, -90, 90);
 
+    //Create a random longitude
+    public static double randomLongitude = faker.number().randomDouble(2, -180, 180);
 
+    //Create a random altitude
+    public static int randomAltitude = faker.number().numberBetween(0, 1000);
 }

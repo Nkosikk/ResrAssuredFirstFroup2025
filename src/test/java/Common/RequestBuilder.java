@@ -7,7 +7,6 @@ import org.json.simple.JSONObject;
 import static Common.basePaths.*;
 import static Common.PayloadBuilder.*;
 
-import static Common.basePaths.*;
 import static io.restassured.RestAssured.get;
 import static Common.PayloadBuilder.createEmployeeObject;
 import static io.restassured.RestAssured.given;
@@ -129,7 +128,7 @@ public class RequestBuilder {
                 extract().response();
     }
 
-    public static Response weatherStationStationResponse(String external_id, String name,double latitude,double longitude,int altitude){
+    public static Response weatherStationStationResponse(String external_id, String name, double latitude, double longitude, int altitude){
         Response response = given().
                 queryParam("appid","cf4dced3a237d81d607ad2009cc5e15a").
                 when().
