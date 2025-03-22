@@ -101,9 +101,6 @@ public class RequestBuilder {
 
     }
     public static Response postCreateEmployeeSuccessfulResponse() {
-
-
-
         return given().when().
                 contentType("application/json").
                 body(createEmployeeObject()).
@@ -113,8 +110,6 @@ public class RequestBuilder {
                         all().
                         extract().
                         response();
-
-
     }
 
     public static Response getAllResourcesListedResponse() {
@@ -154,8 +149,16 @@ public class RequestBuilder {
                 then().
                 log().all().
                 extract().response();
-
-
-
     }
+
+//    public static Response postOpenWeatherResponse(String external_id, String name, double latitude, double longitude, int altitude){
+//        return given().
+//                when().
+//                contentType("application/json").
+//                body(weatherStationStationObject(external_id,name,latitude,longitude,altitude)).
+//                post(Weather_BaseURL + "/data/3.0/stations").
+//                then().
+//                log().all().
+//                extract().response();
+//    }
 }

@@ -27,5 +27,5 @@ public class TestDataCreation {
     public static double randomLongitude = faker.number().randomDouble(2, -180, 180);
 
     //Create a random altitude
-    public static int randomAltitude = faker.number().numberBetween(0, 1000);
+    public static int randomAltitude = faker.number().numberBetween(1, 1000);
 }

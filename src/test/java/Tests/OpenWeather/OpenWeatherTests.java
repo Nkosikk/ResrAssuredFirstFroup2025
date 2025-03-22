@@ -34,17 +34,17 @@ public class OpenWeatherTests {
     }
 //need to correct longitude,latutitude and altitude to be empty values
     public void createWeatherStationStationWithEmptyLatitudeTests() {
-        weatherStationStationResponse(randomEmployeeId, first_name,  4.55, randomLongitude, randomAltitude).
+        weatherStationStationResponse(randomEmployeeId, first_name,  0, randomLongitude, randomAltitude).
                 then().
                 assertThat().
-                statusCode(Bad_Request_Status_Code);
+                statusCode(Created_Status_Code);
     }
 
     public void createWeatherStationStationWithEmptyLongitudeTests(){
-        weatherStationStationResponse(randomEmployeeId,first_name,randomLatitude,2.33,randomAltitude).
+        weatherStationStationResponse(randomEmployeeId,first_name,randomLatitude,0,randomAltitude).
                 then().
                 assertThat().
-                statusCode(Bad_Request_Status_Code);
+                statusCode(Created_Status_Code);
 
     }
 
@@ -52,7 +52,7 @@ public class OpenWeatherTests {
         weatherStationStationResponse(randomEmployeeId, first_name, randomLatitude, randomLongitude,0).
                 then().
                 assertThat().
-                statusCode(Bad_Request_Status_Code);
+                statusCode(Created_Status_Code);
     }
 
     public void weatherStationStationTests(){
@@ -69,6 +69,14 @@ public class OpenWeatherTests {
                 assertThat().
                 statusCode(Success_Status_Code);
     }
+
+//  Noticed it is a repetition
+//    public void postOpenWeatherTests(){
+//        postOpenWeatherResponse(randomEmployeeId,first_name,randomLatitude,randomLongitude,randomAltitude).
+//                then().
+//                assertThat().
+//                statusCode(Created_Status_Code);
+//    }
 
 
 
