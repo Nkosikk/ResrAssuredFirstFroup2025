@@ -1,6 +1,6 @@
 package Tests.ReqRes;
 
-public class ReqResTests {
+public class kReqResTests {
 
     //ToDo Itumeleng - List users
     //ToDo Linda - Single user
